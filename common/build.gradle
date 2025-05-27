@@ -1,0 +1,30 @@
+plugins {
+    id 'java-library'
+}
+
+group = project.maven_group
+version = project.mod_version
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Lombok
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
+
+}
+
+
+base {
+   archivesName = 'quantified-common'
+}
