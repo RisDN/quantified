@@ -6,31 +6,20 @@
   "description": "Your Minecraft statistics, Quantified.",
   "authors": ["Ris"],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "https://quantifiedmc.com",
     "issues:": "https://github.com/risdn/quantified/issues"
   },
   "license": "CC0-1.0",
   "icon": "assets/quantified/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": ["hu.ris.Quantified"],
-    "client": ["hu.ris.QuantifiedClient"]
+    "main": ["hu.ris.Quantified"]
   },
-  "mixins": [
-    "quantified.mixins.json",
-    {
-      "config": "quantified.client.mixins.json",
-      "environment": "client"
-    }
-  ],
   "depends": {
     "fabricloader": ">=0.16.14",
     "minecraft": "~1.21.5",
     "java": ">=21",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   },
   "custom": {
     "modmenu": {
