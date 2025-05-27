@@ -29,7 +29,7 @@ public class QuantifiedCommand extends Command {
     }
 
     private int executeWithoutArguments(CommandContext<ServerCommandSource> context) {
-        context.getSource().sendFeedback(() -> Text.literal("Quantified command executed"), false);
+        context.getSource().sendFeedback(() -> Text.translatable("quantified.mod_description"), false);
         return 1;
     }
 
