@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "quantified",
+  "version": "${version}",
+  "name": "Quantified",
+  "description": "Your Minecraft statistics, Quantified.",
+  "authors": ["Ris"],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "issues:": "https://github.com/risdn/quantified/issues"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/quantified/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["hu.ris.Quantified"],
+    "client": ["hu.ris.QuantifiedClient"]
+  },
+  "mixins": [
+    "quantified.mixins.json",
+    {
+      "config": "quantified.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.5",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.website": "https://quantifiedmc.com",
+        "modmenu.discord": "https://discord.gg/8f2a3b6",
+        "modmenu.issues": "https://github.com/risdn/quantified/issues"
+      }
+    }
+  }
+}
