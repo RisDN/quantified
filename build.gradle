@@ -94,5 +94,5 @@ publishing {
 }
 
 tasks.named("remapJar") {
-    destinationDirectory.set(file("C:\\Users\\Ris\\AppData\\Roaming\\.minecraft\\mods"))
+	destinationDirectory.set(file("${System.getProperty("user.home")}/AppData/Roaming/.minecraft/mods"))
 }
