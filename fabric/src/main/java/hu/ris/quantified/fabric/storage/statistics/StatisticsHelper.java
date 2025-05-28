@@ -3,8 +3,8 @@ package hu.ris.quantified.fabric.storage.statistics;
 import java.util.HashMap;
 import java.util.Map;
 
-import hu.ris.quantified.common.SortMap;
-import hu.ris.quantified.common.SumMap;
+import hu.ris.quantified.common.maputils.SortMap;
+import hu.ris.quantified.common.maputils.SumMap;
 import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;

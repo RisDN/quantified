@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import hu.ris.quantified.common.QuantifiedConfig;
+import hu.ris.quantified.common.config.QuantifiedConfig;
 
 import java.io.File;
 import java.io.FileReader;

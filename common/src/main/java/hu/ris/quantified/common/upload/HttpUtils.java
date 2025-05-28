@@ -1,4 +1,4 @@
-package hu.ris.quantified.common;
+package hu.ris.quantified.common.upload;
 
 import java.net.URI;
 import java.net.http.HttpClient;

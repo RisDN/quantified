@@ -1,4 +1,4 @@
-package hu.ris.quantified.common;
+package hu.ris.quantified.common.config;
 
 public class QuantifiedConfig {
 

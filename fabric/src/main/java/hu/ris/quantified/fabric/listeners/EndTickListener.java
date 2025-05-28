@@ -1,6 +1,6 @@
 package hu.ris.quantified.fabric.listeners;
 
-import hu.ris.quantified.common.QuantifiedConfig;
+import hu.ris.quantified.common.config.QuantifiedConfig;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class EndTickListener implements Listener {

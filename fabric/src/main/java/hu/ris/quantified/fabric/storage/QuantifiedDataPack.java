@@ -1,21 +1,34 @@
 package hu.ris.quantified.fabric.storage;
 
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import com.google.gson.JsonObject;
 
-import hu.ris.quantified.fabric.storage.statistics.CustomStatisticsHelper;
+import lombok.Getter;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 
-public class QuantifiedDataPack extends CustomStatisticsHelper {
+public class QuantifiedDataPack {
+
+    @Getter
+    private final ServerPlayerEntity player;
+
+    @Getter
+    private final ServerWorld world;
+
+    @Getter
+    private final MinecraftServer server;
+
+    @Getter
+    private final JsonObject data;
 
     public QuantifiedDataPack(ServerPlayerEntity player, ServerWorld world, MinecraftServer server) {
-        super(player, world, server);
-
         this.generateJson();
+        this.player = player;
+        this.world = world;
+        this.server = server;
+        this.data = new JsonObject();
     }
 
     public void generateJson() {
@@ -24,13 +37,6 @@ public class QuantifiedDataPack extends CustomStatisticsHelper {
         // write it into a file
 
         CompletableFuture.runAsync(() -> {
-            // read the stats folder by the player's uuid.json
-
-            double days = this.getDays();
-            int deaths = this.getDeaths();
-            double timeSlept = this.getSleepInBed();
-            Map<String, Integer> craftedItems = this.getCraftedItems();
-            JsonObject data = new JsonObject();
 
         });
 

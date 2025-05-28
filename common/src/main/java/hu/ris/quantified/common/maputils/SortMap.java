@@ -1,4 +1,4 @@
-package hu.ris.quantified.common;
+package hu.ris.quantified.common.maputils;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
