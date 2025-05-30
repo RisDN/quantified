@@ -1,4 +1,9 @@
 {
   "quantified.mod_name": "Quantified",
-  "quantified.mod_description": "§aYour Minecraft statistics, Quantified."
+  "quantified.mod_description": "§aYour Minecraft statistics, Quantified.",
+  "quantified.upload.success": "§aSuccessfully uploaded your statistics to the Quantified server.",
+  "quantified.upload.failure.collection.null": "§cFailed to upload: Statistics collection resulted in no data.",
+  "quantified.upload.failure.noresponse": "§cFailed to upload: No response received from the server.",
+  "quantified.upload.failure.exception": "§cFailed to upload: An unexpected error occurred during upload.",
+  "quantified.upload.failure.collection": "§cFailed to upload: An error occurred while collecting statistics."
 }

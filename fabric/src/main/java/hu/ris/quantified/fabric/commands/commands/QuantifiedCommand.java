@@ -1,11 +1,15 @@
 package hu.ris.quantified.fabric.commands.commands;
 
+import java.util.Map;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 
+import hu.ris.quantified.fabric.Quantified;
+import hu.ris.quantified.fabric.StatsCollector;
+import hu.ris.quantified.fabric.Upload;
 import hu.ris.quantified.fabric.commands.Command;
-import hu.ris.quantified.fabric.storage.QuantifiedDataPack;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
 import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
 import net.minecraft.server.command.CommandManager;
@@ -50,7 +54,8 @@ public class QuantifiedCommand extends Command {
     private int executeSave(CommandContext<ServerCommandSource> context) {
         ServerPlayerEntity player = context.getSource().getPlayer();
 
-        new QuantifiedDataPack(player, player.getServerWorld(), player.getServer());
+        Quantified.log("Saving stats for player from command: " + player.getName().getString());
+        Upload.uploadStats(player, player.getServer());
 
         return 1;
     }

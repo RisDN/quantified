@@ -1,4 +1,9 @@
 {
   "quantified.mod_name": "Quantified",
-  "quantified.mod_description": "A Minecraft statisztikáid, számszerűsítve."
+  "quantified.mod_description": "A Minecraft statisztikáid, számszerűsítve.",
+  "quantified.upload.success": "§aSikeresen feltöltötted a statisztikáidat a Quantified szerverre.",
+  "quantified.upload.failure.collection.null": "§cSikertelen feltöltés: A statisztikák gyűjtése nem eredményezett adatot.",
+  "quantified.upload.failure.noresponse": "§cSikertelen feltöltés: Nem érkezett válasz a szerverről.",
+  "quantified.upload.failure.exception": "§cSikertelen feltöltés: Váratlan hiba történt a feltöltés során.",
+  "quantified.upload.failure.collection": "§cSikertelen feltöltés: Hiba történt a statisztikák gyűjtése közben."
 }

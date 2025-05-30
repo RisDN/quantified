@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+import hu.ris.quantified.common.config.QuantifiedConfig;
+
 public class HttpUtils {
 
     private static final HttpClient httpClient = HttpClient.newHttpClient();
@@ -29,6 +31,21 @@ public class HttpUtils {
             System.err.println("Error occurred while sending HTTP request: " + e.getMessage());
             e.printStackTrace();
             return null;
+        });
+    }
+
+    public static CompletableFuture<JsonObject> uploadStats(UploadPack pack) {
+        JsonObject data = new JsonObject();
+        data.addProperty("key", pack.getKey());
+        data.addProperty("stats", pack.getData().toString());
+        for (String key : data.keySet()) {
+            System.out.println("[quantified] Uploading stat: " + key + " with value: " + data.get(key).getAsString());
+        }
+        return postJsonAsync(QuantifiedConfig.UPLOAD_URL, data).thenApply(response -> {
+            if (response == null) {
+                throw new RuntimeException("Failed to upload stats, no response received.");
+            }
+            return response;
         });
     }
 

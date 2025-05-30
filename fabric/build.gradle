@@ -74,6 +74,7 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${inputs.properties.archivesName}"}
 	}
+	from project(':common').sourceSets.main.output
 }
 
 // configure the maven publication
