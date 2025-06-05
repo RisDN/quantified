@@ -7,11 +7,10 @@ public class EndTickListener implements Listener {
     private static int tickCount = 0;
 
     public void register() {
-
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             tickCount++;
             if (tickCount == QuantifiedConfig.SAVE_INTERVAL) {
-                // new UploadTask();
+                // new UploadTask(server);
                 tickCount = 0;
             }
 
