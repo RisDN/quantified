@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+import hu.ris.quantified.common.cache.WorldIconCache;
 import hu.ris.quantified.common.config.QuantifiedConfig;
 
 public class HttpUtils {
@@ -43,6 +44,11 @@ public class HttpUtils {
             data.add(key, pack.getData().get(key));
         }
 
+        if (WorldIconCache.isChanged(pack.getBase64Icon())) {
+            WorldIconCache.setWorldIconBase64(pack.getBase64Icon());
+            data.addProperty("icon", pack.getBase64Icon());
+        }
+
         // Debug log the structure
         System.out.println("[quantified] Uploading grouped stats structure:");
         for (String key : data.keySet()) {
@@ -53,7 +59,9 @@ public class HttpUtils {
             }
         }
 
-        return postJsonAsync(QuantifiedConfig.UPLOAD_URL, data).thenApply(response -> {
+        JsonObject requestData = new JsonObject();
+        requestData.add("data", data);
+        return postJsonAsync(QuantifiedConfig.UPLOAD_URL, requestData).thenApply(response -> {
             if (response == null) {
                 throw new RuntimeException("Failed to upload stats, no response received.");
             }
