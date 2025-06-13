@@ -21,7 +21,7 @@ public class Upload {
                 return;
             }
             String base64Icon = server.getIconFile().map(WorldIconUtils::toBase64).orElse("");
-            UploadPack pack = new UploadPack(QuantifiedSaveConnection.getSaveIdByServerUuid(QuantifiedServerIdentifier.getCurrentId()), stats, base64Icon);
+            UploadPack pack = new UploadPack(QuantifiedSaveConnection.getSaveIdByServerUuid(QuantifiedServerIdentifier.getCurrentId()), stats, base64Icon, player.getName().getString());
 
             Quantified.log("Executing upload pack for: " + player.getName().getString());
             pack.execute().thenAccept((response) -> {

@@ -39,8 +39,8 @@ public class HttpUtils {
     public static CompletableFuture<JsonObject> uploadStats(UploadPack pack) {
         JsonObject data = new JsonObject();
         data.addProperty("key", pack.getKey());
+        data.addProperty("playerName", pack.getPlayerName());
 
-        // Add the grouped stats directly instead of converting to string
         for (String key : pack.getData().keySet()) {
             data.add(key, pack.getData().get(key));
         }
@@ -50,18 +50,9 @@ public class HttpUtils {
             data.addProperty("icon", pack.getBase64Icon());
         }
 
-        // Debug log the structure
-        System.out.println("[quantified] Uploading grouped stats structure:");
-        for (String key : data.keySet()) {
-            if (data.get(key).isJsonArray()) {
-                System.out.println("[quantified] - " + key + ": " + data.getAsJsonArray(key).size() + " items");
-            } else {
-                System.out.println("[quantified] - " + key + ": " + data.get(key).getAsString());
-            }
-        }
-
         JsonObject requestData = new JsonObject();
         requestData.add("data", data);
+
         return postJsonAsync(QuantifiedConfig.UPLOAD_URL, requestData).thenApply(response -> {
             if (response == null) {
                 throw new RuntimeException("Failed to upload stats, no response received.");
