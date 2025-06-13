@@ -1,5 +1,7 @@
 package hu.ris.quantified.fabric;
 
+import java.util.UUID;
+
 import hu.ris.quantified.common.upload.UploadPack;
 import hu.ris.quantified.common.upload.WorldIconUtils;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
@@ -21,7 +23,9 @@ public class Upload {
                 return;
             }
             String base64Icon = server.getIconFile().map(WorldIconUtils::toBase64).orElse("");
-            UploadPack pack = new UploadPack(QuantifiedSaveConnection.getSaveIdByServerUuid(QuantifiedServerIdentifier.getCurrentId()), stats, base64Icon, player.getName().getString());
+            UUID serverId = QuantifiedServerIdentifier.getCurrentId();
+            String saveKey = QuantifiedSaveConnection.getSaveIdByServerUuid(serverId);
+            UploadPack pack = new UploadPack(saveKey, stats, base64Icon, player.getName().getString(), serverId.toString(), player.getUuidAsString());
 
             Quantified.log("Executing upload pack for: " + player.getName().getString());
             pack.execute().thenAccept((response) -> {

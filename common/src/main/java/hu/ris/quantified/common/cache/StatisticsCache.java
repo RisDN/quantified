@@ -15,8 +15,14 @@ public class StatisticsCache {
         for (Map.Entry<String, Integer> entry : newData.entrySet()) {
             String key = entry.getKey();
             Integer newValue = entry.getValue();
-            Integer oldValue = cache.getOrDefault(key, 0);
+            Integer oldValue = cache.get(key);
+
             if (!newValue.equals(oldValue)) {
+
+                if (oldValue == null) {
+                    oldValue = 0;
+                }
+
                 differences.put(key, newValue - oldValue);
             }
         }

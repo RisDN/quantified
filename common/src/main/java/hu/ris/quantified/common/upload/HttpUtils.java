@@ -39,10 +39,13 @@ public class HttpUtils {
     public static CompletableFuture<JsonObject> uploadStats(UploadPack pack) {
         JsonObject data = new JsonObject();
         data.addProperty("key", pack.getKey());
+        data.addProperty("playerUuid", pack.getPlayerUniqueId());
         data.addProperty("playerName", pack.getPlayerName());
+        data.addProperty("worldId", pack.getWorldId());
 
+        JsonObject stats = new JsonObject();
         for (String key : pack.getData().keySet()) {
-            data.add(key, pack.getData().get(key));
+            stats.add(key, pack.getData().get(key));
         }
 
         if (WorldIconCache.isChanged(pack.getBase64Icon())) {
@@ -51,7 +54,10 @@ public class HttpUtils {
         }
 
         JsonObject requestData = new JsonObject();
+        data.add("stats", stats);
         requestData.add("data", data);
+
+        System.out.println("Uploading data: " + requestData.toString());
 
         return postJsonAsync(QuantifiedConfig.UPLOAD_URL, requestData).thenApply(response -> {
             if (response == null) {

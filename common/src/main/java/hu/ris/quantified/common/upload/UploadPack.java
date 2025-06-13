@@ -13,6 +13,12 @@ import lombok.Getter;
 public class UploadPack {
 
     @Getter
+    private String playerUniqueId = null;
+
+    @Getter
+    private String worldId = null;
+
+    @Getter
     private String playerName = null;
 
     @Getter
@@ -24,13 +30,15 @@ public class UploadPack {
     @Getter
     private final JsonObject data;
 
-    public UploadPack(String key, Map<String, Integer> data, String base64Icon, String playerName) {
+    public UploadPack(String key, Map<String, Integer> data, String base64Icon, String playerName, String worldId, String playerUniqueId) {
         this.key = key;
         this.data = new JsonObject();
         Map<String, Integer> differences = StatisticsCache.getDifferences(data);
         StatisticsCache.updateCache(data);
         this.base64Icon = base64Icon;
         this.playerName = playerName;
+        this.worldId = worldId;
+        this.playerUniqueId = playerUniqueId;
 
         // Group data by prefix
         Map<String, JsonArray> groupedStats = new HashMap<>();
