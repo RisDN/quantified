@@ -24,6 +24,7 @@ public class HttpUtils {
 
         return httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString()).thenApply(response -> {
             try {
+                System.out.println("[quantified] HTTP response status: " + response.body());
                 return gson.fromJson(response.body(), JsonObject.class);
             } catch (JsonSyntaxException e) {
                 throw new RuntimeException("Error while sending HTTP request: " + response.body(), e);

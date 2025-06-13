@@ -1,9 +1,9 @@
 {
   "quantified.mod_name": "Quantified",
   "quantified.mod_description": "§aYour Minecraft statistics, Quantified.",
-  "quantified.upload.success": "§aSuccessfully uploaded your statistics to the Quantified server.",
-  "quantified.upload.failure.collection.null": "§cFailed to upload: Statistics collection resulted in no data.",
-  "quantified.upload.failure.noresponse": "§cFailed to upload: No response received from the server.",
-  "quantified.upload.failure.exception": "§cFailed to upload: An unexpected error occurred during upload.",
-  "quantified.upload.failure.collection": "§cFailed to upload: An error occurred while collecting statistics."
+
+  "quantified.connect.save-not-found": "§cSave not found with this key. Please check your save key and try again.",
+  "quantified.connect.save-already-connected": "§cThis save is already connected to another world. Please use a different save key.",
+  "quantified.connect.save-connection-failed": "§cSomething went wrong while connecting to the save. Please contact the mod author.",
+  "quantified.connect.save-successfully-connected": "§aSave named §2\"%1$s\" §asuccessfully connected to this world. Quantified now will start syncing your statistics."
 }

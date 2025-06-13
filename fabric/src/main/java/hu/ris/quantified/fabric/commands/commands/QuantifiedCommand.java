@@ -10,6 +10,7 @@ import hu.ris.quantified.fabric.Quantified;
 import hu.ris.quantified.fabric.StatsCollector;
 import hu.ris.quantified.fabric.Upload;
 import hu.ris.quantified.fabric.commands.Command;
+import hu.ris.quantified.fabric.connect.TrySaveConnect;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
 import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
 import net.minecraft.server.command.CommandManager;
@@ -26,7 +27,7 @@ public class QuantifiedCommand extends Command {
     @Override
     public void registerTo(CommandDispatcher<ServerCommandSource> dispatcher) {
 
-        root.executes(this::executeWithoutArguments).then(CommandManager.literal("connect").then(CommandManager.argument("save-id", StringArgumentType.string()).executes(this::executeConnect))).then(CommandManager.literal("save").executes(this::executeSave));
+        root.executes(this::executeWithoutArguments).then(CommandManager.literal("connect").then(CommandManager.argument("save-key", StringArgumentType.string()).executes(this::executeConnect))).then(CommandManager.literal("save").executes(this::executeSave));
 
         dispatcher.register(root);
 
@@ -38,16 +39,14 @@ public class QuantifiedCommand extends Command {
     }
 
     private int executeConnect(CommandContext<ServerCommandSource> context) {
-        String saveId = StringArgumentType.getString(context, "save-id");
+        String saveKey = StringArgumentType.getString(context, "save-key");
 
         if (QuantifiedSaveConnection.getSaveIdByServerUuid(QuantifiedServerIdentifier.getCurrentId()) != null) {
-            context.getSource().sendError(Text.literal("Already connected to a save"));
+            context.getSource().sendError(Text.translatable("quantified.connect.save-already-connected"));
             return 0;
         }
 
-        QuantifiedSaveConnection.setSaveId(saveId);
-        context.getSource().sendFeedback(() -> Text.literal("Connected to save with ID: " + saveId), false);
-
+        TrySaveConnect.tryConnect(context.getSource().getPlayer(), saveKey, QuantifiedServerIdentifier.getCurrentId().toString());
         return 1;
     }
 

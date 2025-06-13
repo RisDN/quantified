@@ -18,6 +18,14 @@ public class QuantifiedConfig {
      */
     public static final String UPLOAD_URL = "http://localhost:3000/api/upload";
 
+    /**
+     * The URL to which the mod tries to connect the save.
+     * <p>
+     * This is a placeholder URL and should be replaced with the actual URL of the
+     * server to which the save will be connected.
+     */
+    public static final String CONNECT_URL = "http://localhost:3000/api/connect";
+
     /*
      * The path to the file where the data is saved. <p> This file contains the
      * connections between the world and the save ID.
