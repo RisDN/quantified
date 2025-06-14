@@ -2,39 +2,45 @@ package hu.ris.quantified.common.cache;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import lombok.Getter;
 
 public class StatisticsCache {
 
     @Getter
-    private static final Map<String, Integer> cache = new HashMap<>();
+    private static final Map<UUID, Map<String, Integer>> cache = new HashMap<>();
 
-    public static Map<String, Integer> getDifferences(Map<String, Integer> newData) {
+    public static Map<String, Integer> getDifferences(UUID player, Map<String, Integer> newData) {
+        Map<String, Integer> cachedData = cache.getOrDefault(player, new HashMap<>());
         Map<String, Integer> differences = new HashMap<>();
+
         for (Map.Entry<String, Integer> entry : newData.entrySet()) {
             String key = entry.getKey();
             Integer newValue = entry.getValue();
-            Integer oldValue = cache.get(key);
+            Integer cachedValue = cachedData.get(key);
 
-            if (!newValue.equals(oldValue)) {
-
-                if (oldValue == null) {
-                    oldValue = 0;
-                }
-
-                differences.put(key, newValue - oldValue);
+            if (cachedValue == null || !cachedValue.equals(newValue)) {
+                differences.put(key, newValue);
             }
         }
+
         return differences;
+
     }
 
-    public static void updateCache(Map<String, Integer> newData) {
+    public static void clearCache() {
+        cache.clear();
+    }
+
+    public static void updateCache(UUID player, Map<String, Integer> newData) {
+        Map<String, Integer> cachedData = cache.getOrDefault(player, new HashMap<>());
         for (Map.Entry<String, Integer> entry : newData.entrySet()) {
             String key = entry.getKey();
-            Integer newValue = entry.getValue();
-            cache.put(key, newValue);
+            Integer value = entry.getValue();
+            cachedData.put(key, value);
         }
+        cache.put(player, cachedData);
     }
 
 }

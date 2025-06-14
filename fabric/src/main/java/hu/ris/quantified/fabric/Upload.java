@@ -1,8 +1,12 @@
 package hu.ris.quantified.fabric;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
-import hu.ris.quantified.common.upload.UploadPack;
+import hu.ris.quantified.common.cache.StatisticsCache;
 import hu.ris.quantified.common.upload.WorldIconUtils;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
 import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
@@ -12,45 +16,46 @@ import net.minecraft.text.Text;
 
 public class Upload {
 
-    public static void uploadStats(ServerPlayerEntity player, MinecraftServer server) {
-        Quantified.log("Initiating stats upload for player: " + player.getName().getString());
+    public static void uploadStats(MinecraftServer server) {
 
-        StatsCollector.getStats(player, server).thenAccept((stats) -> {
-            Quantified.log("Stats collected for " + player.getName().getString() + ", preparing upload pack. Number of stats entries: " + (stats != null ? stats.size() : "null"));
-            if (stats == null) {
-                Quantified.log("[ERROR] Stats collection resulted in null for player: " + player.getName().getString());
-                player.sendMessage(Text.translatable("quantified.upload.failure.collection.null"), false);
+        String base64Icon = server.getIconFile().map(WorldIconUtils::toBase64).orElse("");
+        UUID serverId = QuantifiedServerIdentifier.getCurrentId();
+        String saveKey = QuantifiedSaveConnection.getSaveIdByServerUuid(serverId);
+
+        if (serverId == null || saveKey == null) {
+            return;
+        }
+
+        UploadPack uploadPack = new UploadPack(saveKey, serverId.toString(), base64Icon);
+        List<ServerPlayerEntity> players = server.getPlayerManager().getPlayerList();
+        final Map<ServerPlayerEntity, Map<String, Integer>> playerStats = new HashMap<>();
+
+        CompletableFuture<?>[] statsFutures = players.stream().map(player -> StatsCollector.getStats(player, server).thenAccept((stats) -> {
+            if (stats == null || stats.isEmpty()) {
                 return;
             }
-            String base64Icon = server.getIconFile().map(WorldIconUtils::toBase64).orElse("");
-            UUID serverId = QuantifiedServerIdentifier.getCurrentId();
-            String saveKey = QuantifiedSaveConnection.getSaveIdByServerUuid(serverId);
-            UploadPack pack = new UploadPack(saveKey, stats, base64Icon, player.getName().getString(), serverId.toString(), player.getUuidAsString());
 
-            Quantified.log("Executing upload pack for: " + player.getName().getString());
-            pack.execute().thenAccept((response) -> {
-                System.out.println("[quantified] Upload response: " + response); // Keep this for direct console feedback
-                if (response == null) {
-                    Quantified.log("[ERROR] Failed to upload stats for " + player.getName().getString() + ", no response received from pack.execute().");
-                    player.sendMessage(Text.translatable("quantified.upload.failure.noresponse"), false);
-                    return;
+            Map<String, Integer> statsAfterCache = StatisticsCache.getDifferences(player.getUuid(), stats);
+            Quantified.log("Stats for player " + player.getName().getString() + " afterCache: " + statsAfterCache.size());
+            synchronized (playerStats) {
+                playerStats.put(player, statsAfterCache);
+            }
+        })).toArray(CompletableFuture[]::new);
+
+        CompletableFuture.allOf(statsFutures).thenRunAsync(() -> {
+            uploadPack.setPlayerStats(playerStats);
+
+            uploadPack.execute().thenAccept((response) -> {
+                Quantified.log("Upload response: " + response);
+
+                for (ServerPlayerEntity player : players) {
+                    StatisticsCache.updateCache(player.getUuid(), playerStats.get(player));
+                    player.sendMessage(Text.of(response.toString()));
                 }
 
-                Quantified.log("Upload successful for " + player.getName().getString() + ". Response: " + response);
-                player.sendMessage(Text.translatable("quantified.upload.success"), false);
-
-            }).exceptionally((ex) -> {
-                Quantified.log("[ERROR] Exception during pack.execute() for " + player.getName().getString() + ": " + ex.toString());
-                ex.printStackTrace(); // Log the full stack trace for debugging
-                player.sendMessage(Text.translatable("quantified.upload.failure.exception"), false);
-                return null; // Required for exceptionally if it's not rethrowing
             });
-        }).exceptionally((ex) -> {
-            Quantified.log("[ERROR] Exception during StatsCollector.getStats() for " + player.getName().getString() + ": " + ex.toString());
-            ex.printStackTrace(); // Log the full stack trace
-            player.sendMessage(Text.translatable("quantified.upload.failure.collection"), false);
-            return null; // Required for exceptionally
         });
+
     }
 
 }

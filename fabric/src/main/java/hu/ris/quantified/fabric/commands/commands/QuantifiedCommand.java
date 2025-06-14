@@ -6,6 +6,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 
+import hu.ris.quantified.common.cache.StatisticsCache;
 import hu.ris.quantified.fabric.Quantified;
 import hu.ris.quantified.fabric.StatsCollector;
 import hu.ris.quantified.fabric.Upload;
@@ -27,7 +28,7 @@ public class QuantifiedCommand extends Command {
     @Override
     public void registerTo(CommandDispatcher<ServerCommandSource> dispatcher) {
 
-        root.executes(this::executeWithoutArguments).then(CommandManager.literal("connect").then(CommandManager.argument("save-key", StringArgumentType.string()).executes(this::executeConnect))).then(CommandManager.literal("save").executes(this::executeSave));
+        root.executes(this::executeWithoutArguments).then(CommandManager.literal("resetcache").executes(this::executeResetCache)).then(CommandManager.literal("connect").then(CommandManager.argument("save-key", StringArgumentType.string()).executes(this::executeConnect))).then(CommandManager.literal("save").executes(this::executeSave));
 
         dispatcher.register(root);
 
@@ -35,6 +36,11 @@ public class QuantifiedCommand extends Command {
 
     private int executeWithoutArguments(CommandContext<ServerCommandSource> context) {
         context.getSource().sendFeedback(() -> Text.translatable("quantified.mod_description"), false);
+        return 1;
+    }
+
+    private int executeResetCache(CommandContext<ServerCommandSource> context) {
+        StatisticsCache.clearCache();
         return 1;
     }
 
@@ -54,7 +60,7 @@ public class QuantifiedCommand extends Command {
         ServerPlayerEntity player = context.getSource().getPlayer();
 
         Quantified.log("Saving stats for player from command: " + player.getName().getString());
-        Upload.uploadStats(player, player.getServer());
+        Upload.uploadStats(player.getServer());
 
         return 1;
     }

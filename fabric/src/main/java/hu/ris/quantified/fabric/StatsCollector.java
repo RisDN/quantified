@@ -1,10 +1,12 @@
 package hu.ris.quantified.fabric;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import hu.ris.quantified.common.maputils.SortMap;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -16,6 +18,9 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Identifier;
 
 public class StatsCollector {
+
+    @Getter
+    private static List<String> statTypes = List.of("custom", "mined", "crafted", "used", "broken", "picked", "dropped", "killedby", "killed");
 
     public static CompletableFuture<Map<String, Integer>> getStats(ServerPlayerEntity player, MinecraftServer server) {
         Map<String, Integer> stats = new HashMap<>();
