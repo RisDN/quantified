@@ -52,15 +52,11 @@ public class UploadPack {
                 String statName = stat.getKey().split(";")[1];
                 Integer value = stat.getValue();
 
-                JsonObject statEntry = new JsonObject();
-                statEntry.addProperty("item", statName);
-                statEntry.addProperty("value", value);
-
                 if (!statsData.has(group)) {
-                    statsData.add(group, new JsonArray());
+                    statsData.add(group, new JsonObject());
                 }
 
-                statsData.getAsJsonArray(group).add(statEntry);
+                statsData.getAsJsonObject(group).addProperty(statName, value);
 
             }
 
