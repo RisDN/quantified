@@ -20,6 +20,11 @@ public class Commands {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 
             for (Command command : COMMANDS) {
+
+                if (environment.dedicated) {
+                    command.root.requires(source -> source.hasPermissionLevel(4));
+                }
+
                 command.registerTo(dispatcher);
             }
         });

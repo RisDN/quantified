@@ -36,7 +36,6 @@ public class Upload {
             }
 
             Map<String, Integer> statsAfterCache = StatisticsCache.getDifferences(player.getUuid(), stats);
-            Quantified.log("Stats for player " + player.getName().getString() + " afterCache: " + statsAfterCache.size());
             synchronized (playerStats) {
                 playerStats.put(player, statsAfterCache);
             }
@@ -48,9 +47,14 @@ public class Upload {
             uploadPack.execute().thenAccept((response) -> {
                 Quantified.log("Upload response: " + response);
 
-                for (ServerPlayerEntity player : players) {
-                    StatisticsCache.updateCache(player.getUuid(), playerStats.get(player));
-                    player.sendMessage(Text.of(response.toString()));
+                boolean success = response.has("success") && response.get("success").getAsBoolean();
+
+                if (success) {
+                    Quantified.log("Stats synced successfully!");
+                    for (ServerPlayerEntity player : players) {
+                        player.sendMessage(Text.of(response.toString()));
+                        StatisticsCache.updateCache(player.getUuid(), playerStats.get(player));
+                    }
                 }
 
             });

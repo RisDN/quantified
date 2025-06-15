@@ -13,4 +13,8 @@ public class WorldIconCache {
         return !worldIconBase64.equals(newBase64Icon);
     }
 
+    public static void clearCache() {
+        worldIconBase64 = "";
+    }
+
 }
