@@ -18,6 +18,18 @@ public class Upload {
 
     public static void uploadStats(MinecraftServer server) {
 
+        if (server == null || server.getPlayerManager() == null) {
+            return;
+        }
+
+        if (server.isStopping() || server.isStopped()) {
+            return;
+        }
+
+        if (server.getPlayerManager().getPlayerList().isEmpty()) {
+            return;
+        }
+
         String base64Icon = server.getIconFile().map(WorldIconUtils::toBase64).orElse("");
         UUID serverId = QuantifiedServerIdentifier.getCurrentId();
         String saveKey = QuantifiedSaveConnection.getSaveIdByServerUuid(serverId);
