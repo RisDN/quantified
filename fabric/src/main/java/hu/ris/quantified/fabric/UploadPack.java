@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import hu.ris.quantified.common.cache.WorldIconCache;
@@ -20,6 +19,10 @@ public class UploadPack {
     @Getter
     @Setter
     private Map<ServerPlayerEntity, Map<String, Integer>> playerStats = new HashMap<>();
+
+    @Getter
+    @Setter
+    private int days;
 
     @Getter
     private final JsonObject data;
@@ -72,6 +75,7 @@ public class UploadPack {
     public CompletableFuture<JsonObject> execute() {
 
         data.add("players", mapPlayerStats());
+        data.addProperty("days", this.days);
 
         JsonObject requestData = new JsonObject();
         requestData.add("data", data);

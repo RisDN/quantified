@@ -17,7 +17,6 @@ import net.minecraft.text.Text;
 public class Upload {
 
     public static void uploadStats(MinecraftServer server) {
-
         if (server == null || server.getPlayerManager() == null) {
             return;
         }
@@ -41,7 +40,7 @@ public class Upload {
         UploadPack uploadPack = new UploadPack(saveKey, serverId.toString(), base64Icon);
         List<ServerPlayerEntity> players = server.getPlayerManager().getPlayerList();
         final Map<ServerPlayerEntity, Map<String, Integer>> playerStats = new HashMap<>();
-
+        uploadPack.setDays(Integer.parseInt(server.getOverworld().getTimeOfDay() / 24000L + ""));
         CompletableFuture<?>[] statsFutures = players.stream().map(player -> StatsCollector.getStats(player, server).thenAccept((stats) -> {
             if (stats == null || stats.isEmpty()) {
                 return;
@@ -71,7 +70,6 @@ public class Upload {
 
             });
         });
-
     }
 
 }
