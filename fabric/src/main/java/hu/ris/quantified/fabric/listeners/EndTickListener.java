@@ -1,6 +1,7 @@
 package hu.ris.quantified.fabric.listeners;
 
 import hu.ris.quantified.common.config.QuantifiedConfig;
+import hu.ris.quantified.fabric.Upload;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class EndTickListener implements Listener {
@@ -8,9 +9,11 @@ public class EndTickListener implements Listener {
 
     public void register() {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
+
             tickCount++;
+
             if (tickCount == QuantifiedConfig.SAVE_INTERVAL) {
-                // new UploadTask(server);
+                Upload.uploadStats(server);
                 tickCount = 0;
             }
 
