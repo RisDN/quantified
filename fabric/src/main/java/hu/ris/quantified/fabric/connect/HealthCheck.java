@@ -9,6 +9,7 @@ import hu.ris.quantified.fabric.Quantified;
 import hu.ris.quantified.fabric.storage.AutoSaveSettings;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
 import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
+import hu.ris.quantified.fabric.storage.SaveStatus;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
@@ -46,6 +47,16 @@ public class HealthCheck {
                     JsonObject saveData = response.body.get("data").getAsJsonObject();
                     if (saveData.has("name")) {
                         String saveName = saveData.get("name").getAsString();
+
+                        // Store the save name in memory
+                        SaveStatus.setSaveName(saveName);
+
+                        // Store the last sync time if available
+                        if (saveData.has("lastSync")) {
+                            long lastSyncTimestamp = saveData.get("lastSync").getAsLong();
+                            SaveStatus.setLastSuccessTime(lastSyncTimestamp); // Already in milliseconds
+                        }
+
                         player.sendMessage(Text.translatable(messageKey, saveName), false);
 
                         // Also send auto-save status

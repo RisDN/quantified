@@ -15,7 +15,19 @@
   "quantified.join.no_save_key": "§7[Quantified] This world is not connected to a save. Use §6/quantified connect <save-key>§7 to start tracking statistics.",
 
   "quantified.health-check.save-not-found": "§c[Quantified] The connected save was not found. The connection has been removed.",
+  "quantified.health-check.save-already-connected": "§c[Quantified] The save is already connected to another world. The connection has been removed.",
   "quantified.health-check.save-world-mismatch": "§c[Quantified] The save is connected to a different world. The connection has been removed.",
   "quantified.health-check.ok": "§a[Quantified] Connected to save: §2%1$s§a. Working correctly.",
-  "quantified.health-check.error": "§c[Quantified] Health check failed. Please try reconnecting the save."
+  "quantified.health-check.error": "§c[Quantified] Health check failed. Please try reconnecting the save.",
+
+  "quantified.status.header": "§b===== §6Quantified Status §b=====",
+  "quantified.status.website": "§7Visit: §9https://quantifiedmc.com",
+  "quantified.status.not_connected": "§c[Quantified] No save connected. Use §6/quantified connect <save-key>§c to connect a save.",
+  "quantified.status.connected_save": "§a[Quantified] Connected to save: §2%1$s",
+  "quantified.status.connected_no_name": "§a[Quantified] Connected to a save (name loading...)",
+  "quantified.status.last_sync_time": "§7[Quantified] Last sync: §2%1$s",
+  "quantified.status.no_sync_yet": "§7[Quantified] Last sync: §cNever (waiting for first sync)",
+  "quantified.status.auto_save_on": "§7[Quantified] Auto-save: §2Enabled §7(every 2 minutes)",
+  "quantified.status.auto_save_off": "§7[Quantified] Auto-save: §4Disabled §7(use §6/quantified save§7 manually)",
+  "quantified.status.time_until_next_sync": "§7[Quantified] Next sync in: §6%1$s"
 }

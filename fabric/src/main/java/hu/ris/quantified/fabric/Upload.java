@@ -10,6 +10,7 @@ import hu.ris.quantified.common.cache.StatisticsCache;
 import hu.ris.quantified.common.upload.WorldIconUtils;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
 import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
+import hu.ris.quantified.fabric.storage.SaveStatus;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -62,6 +63,10 @@ public class Upload {
 
                 if (success) {
                     Quantified.log("Stats synced successfully!");
+
+                    // Update last success time
+                    SaveStatus.setLastSuccessTime(System.currentTimeMillis());
+
                     for (ServerPlayerEntity player : players) {
                         player.sendMessage(Text.of(response.toString()));
                         StatisticsCache.updateCache(player.getUuid(), playerStats.get(player));

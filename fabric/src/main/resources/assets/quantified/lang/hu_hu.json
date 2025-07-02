@@ -15,7 +15,19 @@
   "quantified.join.no_save_key": "§7[Quantified] Ez a világ nincs mentéshez kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§7 parancsot a statisztikák követésének megkezdéséhez.",
 
   "quantified.health-check.save-not-found": "§c[Quantified] A kapcsolódó mentés nem található. A kapcsolat törölve lett.",
+  "quantified.health-check.save-already-connected": "§c[Quantified] A mentés már egy másik világhoz kapcsolódik. A kapcsolat törölve lett.",
   "quantified.health-check.save-world-mismatch": "§c[Quantified] A mentés egy másik világhoz kapcsolódik. A kapcsolat törölve lett.",
   "quantified.health-check.ok": "§a[Quantified] Kapcsolódva a mentéshez: §2%1$s§a. Megfelelően működik.",
-  "quantified.health-check.error": "§c[Quantified] Az állapot ellenőrzés sikertelen. Próbáld újra kapcsolni a mentést."
+  "quantified.health-check.error": "§c[Quantified] Az állapot ellenőrzés sikertelen. Próbáld újra kapcsolni a mentést.",
+
+  "quantified.status.header": "§b===== §6Quantified Állapot §b=====",
+  "quantified.status.website": "§7Látogasd meg: §9https://quantifiedmc.com",
+  "quantified.status.not_connected": "§c[Quantified] Nincs mentés kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§c parancsot mentés kapcsolásához.",
+  "quantified.status.connected_save": "§a[Quantified] Kapcsolódva a mentéshez: §2%1$s",
+  "quantified.status.connected_no_name": "§a[Quantified] Kapcsolódva egy mentéshez (név betöltése...)",
+  "quantified.status.last_sync_time": "§7[Quantified] Utolsó szinkronizálás: §2%1$s",
+  "quantified.status.no_sync_yet": "§7[Quantified] Utolsó szinkronizálás: §cSoha (első szinkronizálásra vár)",
+  "quantified.status.auto_save_on": "§7[Quantified] Automatikus mentés: §2Bekapcsolva §7(2 percenként)",
+  "quantified.status.auto_save_off": "§7[Quantified] Automatikus mentés: §4Kikapcsolva §7(használd a §6/quantified save§7 parancsot kézzel)",
+  "quantified.status.time_until_next_sync": "§7[Quantified] Következő szinkronizálás: §6%1$s múlva"
 }

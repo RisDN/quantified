@@ -31,4 +31,8 @@ public class EndTickListener implements Listener {
         tickCount = 0;
     }
 
+    public static int getTickCount() {
+        return tickCount;
+    }
+
 }
