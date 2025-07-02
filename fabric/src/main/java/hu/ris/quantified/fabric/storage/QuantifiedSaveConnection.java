@@ -45,6 +45,18 @@ public class QuantifiedSaveConnection {
         }
     }
 
+    public static void removeSaveId(UUID serverId) {
+        Map<String, String> saveIdMap = loadSaveIdMap();
+
+        saveIdMap.remove(serverId.toString());
+
+        try (FileWriter writer = new FileWriter(QuantifiedConfig.SAVE_FILE_PATH)) {
+            gson.toJson(saveIdMap, writer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getSaveIdByServerUuid(UUID serverId) {
         Map<String, String> saveIdMap = loadSaveIdMap();
         return saveIdMap.get(serverId.toString());

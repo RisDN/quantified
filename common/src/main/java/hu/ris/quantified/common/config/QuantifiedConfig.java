@@ -26,6 +26,14 @@ public class QuantifiedConfig {
      */
     public static final String CONNECT_URL = "http://localhost:3000/api/connect";
 
+    /**
+     * The URL to which the mod checks the health of the server.
+     * <p>
+     * This is a placeholder URL and should be replaced with the actual URL of the
+     * server to which the health check will be performed.
+     */
+    public static final String HEALTHCHECK_URL = "http://localhost:3000/api/healthcheck";
+
     /*
      * The path to the file where the data is saved. <p> This file contains the
      * connections between the world and the save ID.

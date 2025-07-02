@@ -12,5 +12,10 @@
 
   "quantified.join.auto_save_enabled": "§7[Quantified] Az automatikus mentés §2be van kapcsolva§7. A statisztikák 2 percenként feltöltődnek.",
   "quantified.join.auto_save_disabled": "§7[Quantified] Az automatikus mentés §4ki van kapcsolva§7. Használd a §6/quantified save§7 parancsot a kézi feltöltéshez.",
-  "quantified.join.no_save_key": "§7[Quantified] Ez a világ nincs mentéshez kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§7 parancsot a statisztikák követésének megkezdéséhez."
+  "quantified.join.no_save_key": "§7[Quantified] Ez a világ nincs mentéshez kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§7 parancsot a statisztikák követésének megkezdéséhez.",
+
+  "quantified.health-check.save-not-found": "§c[Quantified] A kapcsolódó mentés nem található. A kapcsolat törölve lett.",
+  "quantified.health-check.save-world-mismatch": "§c[Quantified] A mentés egy másik világhoz kapcsolódik. A kapcsolat törölve lett.",
+  "quantified.health-check.ok": "§a[Quantified] Kapcsolódva a mentéshez: §2%1$s§a. Megfelelően működik.",
+  "quantified.health-check.error": "§c[Quantified] Az állapot ellenőrzés sikertelen. Próbáld újra kapcsolni a mentést."
 }

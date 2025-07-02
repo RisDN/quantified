@@ -9,6 +9,7 @@ public class EndTickListener implements Listener {
     private static int tickCount = 0;
 
     public void register() {
+
         ServerTickEvents.END_SERVER_TICK.register(server -> {
 
             if (AutoSaveSettings.isAutoSaveEnabled()) {
@@ -24,6 +25,10 @@ public class EndTickListener implements Listener {
 
         });
 
+    }
+
+    public static void resetTickCount() {
+        tickCount = 0;
     }
 
 }

@@ -15,11 +15,13 @@ public class ServerStartListener implements Listener {
             AutoSaveSettings.init(server);
             StatisticsCache.clearCache();
             WorldIconCache.clearCache();
+            EndTickListener.resetTickCount();
         });
 
         ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
             StatisticsCache.clearCache();
             WorldIconCache.clearCache();
+            EndTickListener.resetTickCount();
         });
     }
 

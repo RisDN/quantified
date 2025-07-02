@@ -1,6 +1,6 @@
 package hu.ris.quantified.fabric.listeners;
 
-import hu.ris.quantified.fabric.storage.AutoSaveSettings;
+import hu.ris.quantified.fabric.connect.HealthCheck;
 import hu.ris.quantified.fabric.storage.QuantifiedSaveConnection;
 import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -24,13 +24,8 @@ public class PlayerJoinListener implements Listener {
                 if (saveKey == null) {
                     player.sendMessage(Text.translatable("quantified.join.no_save_key"), false);
                 } else {
-                    boolean autoSaveEnabled = AutoSaveSettings.isAutoSaveEnabled();
-
-                    if (autoSaveEnabled) {
-                        player.sendMessage(Text.translatable("quantified.join.auto_save_enabled"), false);
-                    } else {
-                        player.sendMessage(Text.translatable("quantified.join.auto_save_disabled"), false);
-                    }
+                    // Perform health check
+                    HealthCheck.performHealthCheck(player, saveKey);
                 }
             }
         });

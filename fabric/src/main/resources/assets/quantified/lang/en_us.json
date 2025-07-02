@@ -12,5 +12,10 @@
 
   "quantified.join.auto_save_enabled": "§7[Quantified] Auto-save is §2enabled§7. Statistics are uploaded every 2 minutes.",
   "quantified.join.auto_save_disabled": "§7[Quantified] Auto-save is §4disabled§7. Use §6/quantified save§7 to manually upload statistics.",
-  "quantified.join.no_save_key": "§7[Quantified] This world is not connected to a save. Use §6/quantified connect <save-key>§7 to start tracking statistics."
+  "quantified.join.no_save_key": "§7[Quantified] This world is not connected to a save. Use §6/quantified connect <save-key>§7 to start tracking statistics.",
+
+  "quantified.health-check.save-not-found": "§c[Quantified] The connected save was not found. The connection has been removed.",
+  "quantified.health-check.save-world-mismatch": "§c[Quantified] The save is connected to a different world. The connection has been removed.",
+  "quantified.health-check.ok": "§a[Quantified] Connected to save: §2%1$s§a. Working correctly.",
+  "quantified.health-check.error": "§c[Quantified] Health check failed. Please try reconnecting the save."
 }
