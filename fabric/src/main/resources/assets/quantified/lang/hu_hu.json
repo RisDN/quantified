@@ -8,5 +8,9 @@
   "quantified.connect.save-successfully-connected": "§aMentés sikeresen kapcsolódott ehhez a világhoz. A Quantified most elkezdi szinkronizálni a statisztikáidat.",
 
   "quantified.toggle.auto_save_enabled": "§aAz automatikus mentés most §2be van kapcsolva§a. A statisztikáid 2 percenként automatikusan feltöltődnek.",
-  "quantified.toggle.auto_save_disabled": "§cAz automatikus mentés most §4ki van kapcsolva§c. A statisztikáid nem töltődnek fel automatikusan. Használd a §6/quantified save§c parancsot a kézi feltöltéshez."
+  "quantified.toggle.auto_save_disabled": "§cAz automatikus mentés most §4ki van kapcsolva§c. A statisztikáid nem töltődnek fel automatikusan. Használd a §6/quantified save§c parancsot a kézi feltöltéshez.",
+
+  "quantified.join.auto_save_enabled": "§7[Quantified] Az automatikus mentés §2be van kapcsolva§7. A statisztikák 2 percenként feltöltődnek.",
+  "quantified.join.auto_save_disabled": "§7[Quantified] Az automatikus mentés §4ki van kapcsolva§7. Használd a §6/quantified save§7 parancsot a kézi feltöltéshez.",
+  "quantified.join.no_save_key": "§7[Quantified] Ez a világ nincs mentéshez kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§7 parancsot a statisztikák követésének megkezdéséhez."
 }

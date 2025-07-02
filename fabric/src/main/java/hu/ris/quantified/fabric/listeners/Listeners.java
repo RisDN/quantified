@@ -7,7 +7,7 @@ import hu.ris.quantified.fabric.Quantified;
 
 public class Listeners {
 
-    private static final List<Listener> listeners = Arrays.asList(new EndTickListener(), new ServerStartListener());
+    private static final List<Listener> listeners = Arrays.asList(new EndTickListener(), new ServerStartListener(), new PlayerJoinListener());
 
     public static void register() {
         for (Listener listener : listeners) {

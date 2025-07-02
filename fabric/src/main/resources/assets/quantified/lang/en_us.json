@@ -8,5 +8,9 @@
   "quantified.connect.save-successfully-connected": "§aSave named §2\"%1$s\" §asuccessfully connected to this world. Quantified now will start syncing your statistics.",
 
   "quantified.toggle.auto_save_enabled": "§aAuto-save is now §2enabled§a. Your statistics will be automatically uploaded every 2 minutes.",
-  "quantified.toggle.auto_save_disabled": "§cAuto-save is now §4disabled§c. Your statistics will not be automatically uploaded. Use §6/quantified save§c to manually upload statistics."
+  "quantified.toggle.auto_save_disabled": "§cAuto-save is now §4disabled§c. Your statistics will not be automatically uploaded. Use §6/quantified save§c to manually upload statistics.",
+
+  "quantified.join.auto_save_enabled": "§7[Quantified] Auto-save is §2enabled§7. Statistics are uploaded every 2 minutes.",
+  "quantified.join.auto_save_disabled": "§7[Quantified] Auto-save is §4disabled§7. Use §6/quantified save§7 to manually upload statistics.",
+  "quantified.join.no_save_key": "§7[Quantified] This world is not connected to a save. Use §6/quantified connect <save-key>§7 to start tracking statistics."
 }
