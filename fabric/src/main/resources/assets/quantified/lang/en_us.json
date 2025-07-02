@@ -5,5 +5,8 @@
   "quantified.connect.save-not-found": "§cSave not found with this key. Please check your save key and try again.",
   "quantified.connect.save-already-connected": "§cThis save is already connected to another world. Please use a different save key.",
   "quantified.connect.save-connection-failed": "§cSomething went wrong while connecting to the save. Please contact the mod author.",
-  "quantified.connect.save-successfully-connected": "§aSave named §2\"%1$s\" §asuccessfully connected to this world. Quantified now will start syncing your statistics."
+  "quantified.connect.save-successfully-connected": "§aSave named §2\"%1$s\" §asuccessfully connected to this world. Quantified now will start syncing your statistics.",
+
+  "quantified.toggle.auto_save_enabled": "§aAuto-save is now §2enabled§a. Your statistics will be automatically uploaded every 2 minutes.",
+  "quantified.toggle.auto_save_disabled": "§cAuto-save is now §4disabled§c. Your statistics will not be automatically uploaded. Use §6/quantified save§c to manually upload statistics."
 }

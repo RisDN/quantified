@@ -8,7 +8,7 @@ public class QuantifiedConfig {
      * One tick is 1/20th of a second, so the default value (120 * 20 = 2400)
      * represents 120 seconds (2 minutes).
      */
-    public static final int SAVE_INTERVAL = 5 * 20;
+    public static final int SAVE_INTERVAL = 120 * 20;
 
     /**
      * The URL to which the data is uploaded.

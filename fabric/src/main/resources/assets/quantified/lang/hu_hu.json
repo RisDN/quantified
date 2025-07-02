@@ -5,5 +5,8 @@
   "quantified.connect.save-not-found": "§cNem található mentés ezzel a kulccsal. Kérjük, ellenőrizd a mentési kulcsot és próbáld újra.",
   "quantified.connect.save-already-connected": "§cEz a mentés már egy másik világhoz kapcsolódik. Kérjük, használj egy másik mentési kulcsot.",
   "quantified.connect.save-connection-failed": "§cValami hiba történt a mentéshez való kapcsolódás során. Kérjük, lépj kapcsolatba a mod készítőjével.",
-  "quantified.connect.save-successfully-connected": "§aMentés sikeresen kapcsolódott ehhez a világhoz. A Quantified most elkezdi szinkronizálni a statisztikáidat."
+  "quantified.connect.save-successfully-connected": "§aMentés sikeresen kapcsolódott ehhez a világhoz. A Quantified most elkezdi szinkronizálni a statisztikáidat.",
+
+  "quantified.toggle.auto_save_enabled": "§aAz automatikus mentés most §2be van kapcsolva§a. A statisztikáid 2 percenként automatikusan feltöltődnek.",
+  "quantified.toggle.auto_save_disabled": "§cAz automatikus mentés most §4ki van kapcsolva§c. A statisztikáid nem töltődnek fel automatikusan. Használd a §6/quantified save§c parancsot a kézi feltöltéshez."
 }
