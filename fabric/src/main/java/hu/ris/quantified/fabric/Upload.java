@@ -13,7 +13,6 @@ import hu.ris.quantified.fabric.storage.QuantifiedServerIdentifier;
 import hu.ris.quantified.fabric.storage.SaveStatus;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 
 public class Upload {
 
