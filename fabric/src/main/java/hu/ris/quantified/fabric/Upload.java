@@ -64,11 +64,9 @@ public class Upload {
                 if (success) {
                     Quantified.log("Stats synced successfully!");
 
-                    // Update last success time
                     SaveStatus.setLastSuccessTime(System.currentTimeMillis());
 
                     for (ServerPlayerEntity player : players) {
-                        player.sendMessage(Text.of(response.toString()));
                         StatisticsCache.updateCache(player.getUuid(), playerStats.get(player));
                     }
                 }
