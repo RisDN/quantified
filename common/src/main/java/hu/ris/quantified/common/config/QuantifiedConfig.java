@@ -16,7 +16,7 @@ public class QuantifiedConfig {
      * This is a placeholder URL and should be replaced with the actual URL of the
      * server to which the data will be uploaded.
      */
-    public static final String UPLOAD_URL = "http://localhost:3000/api/upload";
+    public static final String UPLOAD_URL = "https://quantifiedmc.com/api/upload";
 
     /**
      * The URL to which the mod tries to connect the save.
@@ -24,7 +24,7 @@ public class QuantifiedConfig {
      * This is a placeholder URL and should be replaced with the actual URL of the
      * server to which the save will be connected.
      */
-    public static final String CONNECT_URL = "http://localhost:3000/api/connect";
+    public static final String CONNECT_URL = "https://quantifiedmc.com/api/connect";
 
     /**
      * The URL to which the mod checks the health of the server.
@@ -32,7 +32,7 @@ public class QuantifiedConfig {
      * This is a placeholder URL and should be replaced with the actual URL of the
      * server to which the health check will be performed.
      */
-    public static final String HEALTHCHECK_URL = "http://localhost:3000/api/healthcheck";
+    public static final String HEALTHCHECK_URL = "https://quantifiedmc.com/api/healthcheck";
 
     /*
      * The path to the file where the data is saved. <p> This file contains the
