@@ -69,6 +69,10 @@ public class Upload {
                     for (ServerPlayerEntity player : players) {
                         StatisticsCache.updateCache(player.getUuid(), playerStats.get(player));
                     }
+
+                } else {
+                    String errorMessage = response.has("error") ? response.get("error").getAsString() : "Unknown error";
+                    Quantified.log("Stats sync failed: " + errorMessage);
                 }
 
             });

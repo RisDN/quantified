@@ -25,8 +25,8 @@
     "modmenu": {
       "links": {
         "modmenu.website": "https://quantifiedmc.com",
-        "modmenu.discord": "https://discord.gg/8f2a3b6",
-        "modmenu.issues": "https://github.com/risdn/quantified/issues"
+        "modmenu.discord": "https://quantifiedmc.com/discord",
+        "modmenu.issues": "https://quantifiedmc.com/github"
       }
     }
   }
