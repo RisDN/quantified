@@ -33,8 +33,7 @@ public class QuantifiedCommand extends Command {
     @Override
     public void registerTo(CommandDispatcher<ServerCommandSource> dispatcher) {
 
-        root.executes(this::executeWithoutArguments).then(CommandManager.literal("resetcache").executes(this::executeResetCache)).then(CommandManager.literal("connect").then(CommandManager.argument("save-key", StringArgumentType.string()).executes(this::executeConnect))).then(CommandManager.literal("save").executes(this::executeSave))
-                .then(CommandManager.literal("toggle").executes(this::executeToggle)).then(CommandManager.literal("status").executes(this::executeStatus));
+        root.executes(this::executeWithoutArguments).then(CommandManager.literal("connect").then(CommandManager.argument("save-key", StringArgumentType.string()).executes(this::executeConnect))).then(CommandManager.literal("toggle").executes(this::executeToggle)).then(CommandManager.literal("status").executes(this::executeStatus));
 
         dispatcher.register(root);
 
