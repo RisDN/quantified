@@ -30,6 +30,11 @@ public class Upload {
         }
 
         String base64Icon = server.getIconFile().map(WorldIconUtils::toBase64).orElse("");
+
+        if (server.isDedicated()) {
+            base64Icon = WorldIconUtils.toBase64(server.getRunDirectory().resolve("server-icon.png"));
+        }
+
         UUID serverId = QuantifiedServerIdentifier.getCurrentId();
         String saveKey = QuantifiedSaveConnection.getSaveIdByServerUuid(serverId);
 
@@ -56,7 +61,6 @@ public class Upload {
             uploadPack.setPlayerStats(playerStats);
 
             uploadPack.execute().thenAccept((response) -> {
-                Quantified.log("Upload response: " + response);
 
                 boolean success = response.has("success") && response.get("success").getAsBoolean();
 
