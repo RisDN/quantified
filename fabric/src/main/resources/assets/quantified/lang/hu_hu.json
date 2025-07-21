@@ -8,11 +8,11 @@
   "quantified.connect.save-successfully-connected": "§8[§aQuantified§8]§r §aMentés sikeresen kapcsolódott ehhez a világhoz. A Quantified most elkezdi szinkronizálni a statisztikáidat.",
 
   "quantified.toggle.auto_save_enabled": "§8[§aQuantified§8]§r §aAz automatikus mentés most §2be van kapcsolva§a. A statisztikáid 2 percenként automatikusan feltöltődnek.",
-  "quantified.toggle.auto_save_disabled": "§8[§aQuantified§8]§r §cAz automatikus mentés most §4ki van kapcsolva§c. A statisztikáid nem töltődnek fel automatikusan. Használd a §6/quantified save§c parancsot a kézi feltöltéshez.",
+  "quantified.toggle.auto_save_disabled": "§8[§aQuantified§8]§r §cAz automatikus mentés most §4ki van kapcsolva§c. A statisztikáid nem töltődnek fel automatikusan. Használd a §6/quantified toggle§c parancsot ennek a beállításnak a megváltoztatásához.",
 
   "quantified.join.auto_save_enabled": "§8[§aQuantified§8]§r §7Az automatikus mentés §2be van kapcsolva§7. A statisztikák 2 percenként feltöltődnek.",
-  "quantified.join.auto_save_disabled": "§8[§aQuantified§8]§r §7Az automatikus mentés §4ki van kapcsolva§7. Használd a §6/quantified save§7 parancsot a kézi feltöltéshez.",
-  "quantified.join.no_save_key": "§8[§aQuantified§8]§r §7Ez a világ nincs mentéshez kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§7 parancsot a statisztikák követésének megkezdéséhez.",
+  "quantified.join.auto_save_disabled": "§8[§aQuantified§8]§r §7Az automatikus mentés §4ki van kapcsolva§7. Használd a §6/quantified toggle§7 parancsot ennek a beállításnak a megváltoztatásához.",
+  "quantified.join.no_save_key": "§8[§aQuantified§8]§r §7Ez a világ nincs mentéshez kapcsolva. Használd a §6/quantified connect <mentési-kulcs>§7 parancsot a statisztikák követésének megkezdéséhez. Hozz létre egy mentést a §6https://quantifiedmc.com§7 oldalon.",
 
   "quantified.health-check.save-not-found": "§8[§aQuantified§8]§r §cA kapcsolódó mentés nem található. A kapcsolat törölve lett.",
   "quantified.health-check.save-already-connected": "§8[§aQuantified§8]§r §cA mentés már egy másik világhoz kapcsolódik. A kapcsolat törölve lett.",
@@ -28,6 +28,6 @@
   "quantified.status.last_sync_time": "§8[§aQuantified§8]§r §7Utolsó szinkronizálás: §2%1$s",
   "quantified.status.no_sync_yet": "§8[§aQuantified§8]§r §7Utolsó szinkronizálás: §cSoha §7(első szinkronizálásra vár)",
   "quantified.status.auto_save_on": "§8[§aQuantified§8]§r §7Automatikus mentés: §2Bekapcsolva §7(2 percenként)",
-  "quantified.status.auto_save_off": "§8[§aQuantified§8]§r §7Automatikus mentés: §4Kikapcsolva §7(használd a §6/quantified save§7 parancsot kézzel)",
+  "quantified.status.auto_save_off": "§8[§aQuantified§8]§r §7Automatikus mentés: §4Kikapcsolva",
   "quantified.status.time_until_next_sync": "§8[§aQuantified§8]§r §7Következő szinkronizálás: §6%1$s múlva"
 }

@@ -8,11 +8,11 @@
   "quantified.connect.save-successfully-connected": "§8[§aQuantified§8]§r §aSave named §2\"%1$s\" §asuccessfully connected to this world. Quantified will now start syncing your statistics.",
 
   "quantified.toggle.auto_save_enabled": "§8[§aQuantified§8]§r §aAuto-save is now §2enabled§a. Your statistics will be automatically uploaded every 2 minutes.",
-  "quantified.toggle.auto_save_disabled": "§8[§aQuantified§8]§r §cAuto-save is now §4disabled§c. Your statistics will not be automatically uploaded. Use §6/quantified save§c to manually upload statistics.",
+  "quantified.toggle.auto_save_disabled": "§8[§aQuantified§8]§r §cAuto-save is now §4disabled§c. Your statistics will not be automatically uploaded. Use §6/quantified toggle§c to change this setting.",
 
   "quantified.join.auto_save_enabled": "§8[§aQuantified§8]§r §7Auto-save is §2enabled§7. Statistics are uploaded every 2 minutes.",
-  "quantified.join.auto_save_disabled": "§8[§aQuantified§8]§r §7Auto-save is §4disabled§7. Use §6/quantified save§7 to manually upload statistics.",
-  "quantified.join.no_save_key": "§8[§aQuantified§8]§r §7This world is not connected to a save. Use §6/quantified connect <save-key>§7 to start tracking statistics.",
+  "quantified.join.auto_save_disabled": "§8[§aQuantified§8]§r §7Auto-save is §4disabled§7. Use §6/quantified toggle§7 to change this setting.",
+  "quantified.join.no_save_key": "§8[§aQuantified§8]§r §7This world is not connected to a save. Use §6/quantified connect <save-key>§7 to start tracking statistics. Create a save on §6https://quantifiedmc.com",
 
   "quantified.health-check.save-not-found": "§8[§aQuantified§8]§r §cThe connected save was not found. The connection has been removed.",
   "quantified.health-check.save-already-connected": "§8[§aQuantified§8]§r §cThe save is already connected to another world. The connection has been removed.",
@@ -28,6 +28,6 @@
   "quantified.status.last_sync_time": "§8[§aQuantified§8]§r §7Last sync: §2%1$s",
   "quantified.status.no_sync_yet": "§8[§aQuantified§8]§r §7Last sync: §cNever §7(waiting for first sync)",
   "quantified.status.auto_save_on": "§8[§aQuantified§8]§r §7Auto-save: §2Enabled §7(every 2 minutes)",
-  "quantified.status.auto_save_off": "§8[§aQuantified§8]§r §7Auto-save: §4Disabled §7(use §6/quantified save§7 manually)",
+  "quantified.status.auto_save_off": "§8[§aQuantified§8]§r §7Auto-save: §4Disabled",
   "quantified.status.time_until_next_sync": "§8[§aQuantified§8]§r §7Next sync in: §6%1$s"
 }
