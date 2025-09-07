@@ -33,7 +33,7 @@ public class UploadPack {
         this.data.addProperty("key", key);
         this.data.addProperty("worldId", worldId);
 
-        if (WorldIconCache.isChanged(base64Icon)) {
+        if (base64Icon != null && WorldIconCache.isChanged(base64Icon)) {
             WorldIconCache.setWorldIconBase64(base64Icon);
             data.addProperty("icon", base64Icon);
         }
